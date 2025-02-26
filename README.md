@@ -7,6 +7,7 @@ I wanted to create this section because some of us still go to restaurants. So I
 ScytheSoftware — Yesterday at 8:59 PM
 The scoring that I will take into consideration is as follows: 
 All natural Ingredients: +10 Points
+
 1 to 3 Bad ingredients:  +3 Points
 4 to 5 Bad ingredients: -3 Points
 6 or more Bad ingredients: -5 Points
