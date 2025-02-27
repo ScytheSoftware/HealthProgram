@@ -290,13 +290,14 @@ def Sugar(fs):
     sugarAns = input("Is it clear that this product has 'Added Sugars'? \nYes [Y]/ No [N]: ").lower()
     while(True):
         if((sugarAns == 'y') or (sugarAns == 'n') or (sugarAns =='q')):
-            sugarAdded = input("Is it more than 0g?: \nYes [Y]/ No [N]: ")
-            if((sugarAdded == 'y') or (sugarAdded == 'n') or (sugarAdded =='q')):
-                break
-            else:
-                print("You've entered a invalid option. Try again\n")
-                sugarAdded = input("Enter Answer: ")
-            break
+            if(sugarAns == 'y'): #if it's clear is has added sugar
+                sugarAdded = input("Is it more than 0g?: \nYes [Y]/ No [N]: ")
+                if((sugarAdded == 'y') or (sugarAdded == 'n') or (sugarAdded =='q')):
+                    break
+                else:
+                    print("You've entered a invalid option. Try again\n")
+                    sugarAdded = input("Enter Answer: ")
+            break #if not clear it has added sugar, break
         else:
             print("You've entered a invalid option. Try again\n")
             sugarAns = input("Enter Answer: ")
@@ -310,9 +311,9 @@ def Sugar(fs):
     if(sugarAns == 'y'and sugarAdded == 'n'):
         fs += 2 #no Added Sugar
     elif(sugarAns == 'y'and sugarAdded == 'y'):
-        fs -= 10 #Has Added Sugar
+        fs -= 10 #Has Added Sugar. 
     else:
-        fs -= 6 #if it's not clear, minus 7. Not sure if it's added or not truly
+        fs -= 6 #if it's not clear, minus 6. Not really sure if it's added or not truly
 
     return fs
 
