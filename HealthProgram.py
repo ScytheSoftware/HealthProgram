@@ -109,7 +109,7 @@ def CarbsMulti(fs, multi):
         fs += 1
 
     carbs *= multi  #To get the Total serving amount for carbs for the next condition
-    if(carbs < 70): #Total Carbs
+    if(carbs < 60): #Total Carbs
         fs += 1
     else:
         fs -= 2
@@ -121,7 +121,7 @@ def CarbsDivide(fs, divide):
     carbs = input("Enter the amount of carbs: ")
     carbs = isWholeNumber(carbs)
 
-    if(carbs < 70): #The Total
+    if(carbs < 60): #The Total
         fs += 1
     else:
         fs -= 2
@@ -156,7 +156,7 @@ def fatsMulti(fs, multi):
     allFat *= multi  #To get the Total serving amount for Fat for the next condition
     if(allFat < 30): #Total of all Fat
         fs += 2
-    elif(allFat > 55): #Total of all Fat greater than 55g
+    elif(allFat > 50): #Total of all Fat greater than 55g
         fs -= 3
     else:
         fs += 0
@@ -194,7 +194,7 @@ def fatsDivide(fs, divide):
     #Here, the fat is already Total
     if(allFat < 30): #Total of all Fat
         fs += 2
-    elif(allFat > 55): #Total of all Fat greater than 55g
+    elif(allFat > 50): #Total of all Fat greater than 55g
         fs -= 3
     else:
         fs += 0
@@ -290,6 +290,12 @@ def Sugar(fs):
     sugarAns = input("Is it clear that this product has 'Added Sugars'? \nYes [Y]/ No [N]: ").lower()
     while(True):
         if((sugarAns == 'y') or (sugarAns == 'n') or (sugarAns =='q')):
+            sugarAdded = input("Is it more than 0g?: \nYes [Y]/ No [N]: ")
+            if((sugarAdded == 'y') or (sugarAdded == 'n') or (sugarAdded =='q')):
+                break
+            else:
+                print("You've entered a invalid option. Try again\n")
+                sugarAdded = input("Enter Answer: ")
             break
         else:
             print("You've entered a invalid option. Try again\n")
@@ -299,12 +305,14 @@ def Sugar(fs):
     if(sugar == 0): 
         fs += 2
     else:
-        fs -= 1
+        fs -= 2
     
-    if(sugarAns == 'y'):
-        fs += 0 #if it's clear, do nothing
+    if(sugarAns == 'y'and sugarAdded == 'n'):
+        fs += 2 #no Added Sugar
+    elif(sugarAns == 'y'and sugarAdded == 'y'):
+        fs -= 5 #Has Added Sugar
     else:
-        fs -= 1 #if it's not clear, minus 1
+        fs -= 7 #if it's not clear, minus 7. Most food without this info is waste usually. 
 
     return fs
 
