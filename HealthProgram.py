@@ -73,7 +73,7 @@ def CaloriesMulti(fs, multi):
     print("Quit [Q]")
     calories = input("Enter the amount of calories: ")
     calories = isWholeNumber(calories)
-    if(calories < 300): #per Serving
+    if(calories < 200): #per Serving
         fs += 1
 
     calories *= multi #To get the total amount of calories for th next condition
@@ -95,7 +95,7 @@ def CaloriesDivide(fs, divide):
         fs -= 2
 
     calories /= divide  #To get the single serving amount for calories for the next condition
-    if(calories < 300): #per Serving
+    if(calories < 200): #per Serving
         fs += 1
 
     return fs
