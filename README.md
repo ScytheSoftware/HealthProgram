@@ -29,9 +29,9 @@ Less Than 850 Calories Total: +2 Points
 
 Less Than 10g Carbs per Serving Size: +1 Point
 
-Less Than 70g Carbs Total: +1 Point
+Less Than 60g Carbs Total: +1 Point
 
-70g or More Carbs Total: -2 Points
+60g or More Carbs Total: -2 Points
 
 ----
 
@@ -43,7 +43,7 @@ Less Than 6g Saturated & Trans Fat per Serving: +1 Point
 
 Less Than 30g Total Fat: +2 Point
 
-55g or More Total Fat: -3 Point
+50g or More Total Fat: -3 Point
 
 More Than 0g Polyunsaturated Fat Total: +2 Points
 
@@ -69,11 +69,15 @@ Less Than 50g Cholesterol Total: +4 Points
 
 ----
 
-0g "Added Sugars": +2 Points 
+0g Sugars: +2 Points 
 
-More Than 0g "Added Sugars": -1 Point
+More Than 0g Sugars: -2 Point
 
-Note: If the food item shows Carbs and Sugar separately and it isn't clear, there's "Added Sugar" minus 1. 
+0g "Added Sugars": +2 Points
+
+More Than 0g "Added Sugars": -5 Points
+
+If the food item shows Carbs and Sugar separately and it isn't clear, there's "Added Sugar": -7.
 
 ----
 
