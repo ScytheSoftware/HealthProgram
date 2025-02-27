@@ -93,8 +93,8 @@ Bad ( 1 - 9 Points): ❌
 
 Normal (10 - 16 Points): ⭕ 
 
-OK to Eat (17 - 21 Points): ✅ 
+OK to Eat (17 - 24 Points): ✅ 
 
-Perfect (More than 21 Points): 💎
+Perfect (More than 24 Points): 💎
 
 *Each food score will be branded by one of these icons.
