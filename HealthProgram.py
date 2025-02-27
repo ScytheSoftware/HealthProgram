@@ -310,9 +310,9 @@ def Sugar(fs):
     if(sugarAns == 'y'and sugarAdded == 'n'):
         fs += 2 #no Added Sugar
     elif(sugarAns == 'y'and sugarAdded == 'y'):
-        fs -= 5 #Has Added Sugar
+        fs -= 10 #Has Added Sugar
     else:
-        fs -= 7 #if it's not clear, minus 7. Most food without this info is waste usually. 
+        fs -= 6 #if it's not clear, minus 7. Not sure if it's added or not truly
 
     return fs
 
