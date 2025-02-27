@@ -1,8 +1,8 @@
 # HealthProgram
-This is something I created to track the health of foods, mainly from restaurants.
+I created this to track the health of foods, mainly from restaurants.
 
 
-I wanted to create this section because some of us still go to restaurants. So I wanted to list restaurants that have somewhat acceptable foods, despite the bad ingredients. However, I will score each dish.
+I wanted to create this section because some still go to restaurants. So I wanted to list restaurants that have somewhat acceptable foods, despite the bad ingredients. However, I will score each dish.
 ‼️ All Dishes will start at 10 points by default. ‼️ 
 
 The scoring that I will take into consideration is as follows: 
@@ -19,7 +19,7 @@ Any Organic Ingredients: +3 Points
 
 ----
 
-Less Than 300 Calories per Serving Size: +1 Point 
+Less Than 200 Calories per Serving Size: +1 Point 
 
 Less Than 850 Calories Total: +2 Points
 
