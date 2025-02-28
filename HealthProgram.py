@@ -319,10 +319,12 @@ def Sugar(fs):
     elif(sugarAns == 'n' and sugar >= 10 and carbs >= 25 ):
         fs -= 6 #if it's not clear, but the sugars are high, -6. Not sure if it's "Added Sugar" but the sugar is too high
     elif(sugarAns == 'n' and sugar >= 1 and sugar < 10 and carbs >= 1 and carbs < 25 ):
-        fs += 1 #if it's not clear, but the sugars are vary low, +1
+        fs += 1 #if it's not clear, but the sugars are very low, +1
     elif(sugarAns == 'n' and sugar == 0):
         fs += 3
-
+    else:
+        fs += 0 #If nothing fits, add nothing
+        
     return fs
 
 def SodiumMulti(fs, multi):
