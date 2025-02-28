@@ -162,7 +162,7 @@ def fatsMulti(fs, multi):
         fs += 0
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
-    if(p_fat > 0): #Total of Polyunsaturated Fat greater than 0g
+    if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
         fs += 2
 
     if(m_fat > 0):  #Total of Monounsaturated Fat greater than 0g
@@ -200,7 +200,7 @@ def fatsDivide(fs, divide):
         fs += 0
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
-    if(p_fat > 0): #Total of Polyunsaturated Fat greater than 0g
+    if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
         fs += 2
 
     if(m_fat > 0):  #Total of Monounsaturated Fat greater than 0g
@@ -287,6 +287,8 @@ def Sugar(fs):
     print("Quit [Q]")
     sugar = input("Enter the amount of Sugar: ")
     sugar = isWholeNumber(sugar)
+    carbs = input("Enter the amount of Carbs again: ")
+    carbs = isWholeNumber(carbs)
     sugarAns = input("Is it clear that this product has 'Added Sugars'? \nYes [Y]/ No [N]: ").lower()
     while(True):
         if((sugarAns == 'y') or (sugarAns == 'n') or (sugarAns =='q')):
@@ -308,12 +310,16 @@ def Sugar(fs):
     else:
         fs -= 2
     
-    if(sugarAns == 'y'and sugarAdded == 'n'):
+    if(sugarAns == 'y' and sugarAdded == 'n'):
         fs += 2 #no Added Sugar
-    elif(sugarAns == 'y'and sugarAdded == 'y'):
+    elif(sugarAns == 'y' and sugarAdded == 'y'):
         fs -= 10 #Has Added Sugar. 
+    elif(sugarAns == 'n' and sugar >= 10 and carbs >= 20 ):
+        fs -= 6 #if it's not clear, but the sugars are high, -6
+    elif(sugarAns == 'n' and sugar < 10 and carbs < 20 ):
+        fs += 1 #if it's not clear, but the sugars are vary low, +1
     else:
-        fs -= 3 #if it's not clear, minus 6. Not really sure if it's added or not truly
+        fs -= 1 #if none above, -1
 
     return fs
 
