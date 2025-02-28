@@ -73,11 +73,17 @@ Less Than 50g Cholesterol Total: +4 Points
 
 More Than 0g Sugars: -2 Point
 
-0g "Added Sugars": +2 Points
+0g "Added Sugars" with some Sugar: +2 Points
+
+0g "Added Sugars" no Sugar: +4 Points
 
 More Than 0g "Added Sugars": -10 Points
 
-If the food item shows Carbs and Sugar separately and it isn't clear, there's "Added Sugar": -3.
+*If "Added Sugars" not there, and Sugars is 10g or higher & Carbs is 20g or higher: -6 
+
+*If "Added Sugars" not there, and Sugars less than 10g & Carbs less than 20g: -1
+
+*If "Added Sugars" not there, and Sugars is 0g: +3
 
 ----
 
