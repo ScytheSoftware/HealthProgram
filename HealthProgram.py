@@ -162,7 +162,7 @@ def fatsMulti(fs, multi):
         fs += 0
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
-    if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
+    if(p_fat > 0): #Total of Polyunsaturated Fat greater than 0g
         fs += 2
 
     if(m_fat > 0):  #Total of Monounsaturated Fat greater than 0g
@@ -200,7 +200,7 @@ def fatsDivide(fs, divide):
         fs += 0
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
-    if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
+    if(p_fat > 0): #Total of Polyunsaturated Fat greater than 0g
         fs += 2
 
     if(m_fat > 0):  #Total of Monounsaturated Fat greater than 0g
@@ -313,7 +313,7 @@ def Sugar(fs):
     elif(sugarAns == 'y'and sugarAdded == 'y'):
         fs -= 10 #Has Added Sugar. 
     else:
-        fs -= 6 #if it's not clear, minus 6. Not really sure if it's added or not truly
+        fs -= 3 #if it's not clear, minus 6. Not really sure if it's added or not truly
 
     return fs
 
