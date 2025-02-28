@@ -310,16 +310,18 @@ def Sugar(fs):
     else:
         fs -= 2
     
-    if(sugarAns == 'y' and sugarAdded == 'n'):
+    if(sugarAns == 'y' and sugarAdded == 'n' and sugar >= 1):
         fs += 2 #no Added Sugar
+    elif(sugarAns == 'y' and sugarAdded == 'n' and sugar == 0):
+        fs += 4 #no Added Sugar with 0 sugar, Extra bonus.
     elif(sugarAns == 'y' and sugarAdded == 'y'):
         fs -= 10 #Has Added Sugar. 
-    elif(sugarAns == 'n' and sugar >= 10 and carbs >= 20 ):
-        fs -= 6 #if it's not clear, but the sugars are high, -6
-    elif(sugarAns == 'n' and sugar < 10 and carbs < 20 ):
+    elif(sugarAns == 'n' and sugar >= 10 and carbs >= 25 ):
+        fs -= 6 #if it's not clear, but the sugars are high, -6. Not sure if it's "Added Sugar" but the sugar is too high
+    elif(sugarAns == 'n' and sugar >= 1 and sugar < 10 and carbs >= 1 and carbs < 25 ):
         fs += 1 #if it's not clear, but the sugars are vary low, +1
-    else:
-        fs -= 1 #if none above, -1
+    elif(sugarAns == 'n' and sugar == 0):
+        fs += 3
 
     return fs
 
