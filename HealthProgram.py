@@ -57,10 +57,10 @@ def ingredients(fs):
             fs += 3
             break
         elif(ans == 3): #4 to 5 Bad ingredients
-            fs -= 3
+            fs -= 5
             break
         elif(ans == 4): #6 or more Bad ingredints
-            fs -= 5
+            fs -= 8
             break
         elif(ans == 5): #Quit the program
             exit()
@@ -82,6 +82,9 @@ def CaloriesMulti(fs, multi):
     else:
         fs -= 2
 
+    if(calories >= 3000): #If the food item is way too high in calories
+        fs -= 8
+
     return fs
 
 def CaloriesDivide(fs, divide):
@@ -93,6 +96,9 @@ def CaloriesDivide(fs, divide):
         fs += 2
     else:
         fs -= 2
+
+    if(calories >= 3000): #If the food item is way too high in calories
+        fs -= 8
 
     calories /= divide  #To get the single serving amount for calories for the next condition
     if(calories < 200): #per Serving
@@ -109,10 +115,13 @@ def CarbsMulti(fs, multi):
         fs += 1
 
     carbs *= multi  #To get the Total serving amount for carbs for the next condition
-    if(carbs < 60): #Total Carbs
+    if(carbs < 50): #Total Carbs
         fs += 1
     else:
         fs -= 2
+
+    if(carbs >= 300): #If the food item is way too high in Carbs
+        fs -= 8
 
     return fs
 
@@ -121,10 +130,13 @@ def CarbsDivide(fs, divide):
     carbs = input("Enter the amount of carbs: ")
     carbs = isWholeNumber(carbs)
 
-    if(carbs < 60): #The Total
+    if(carbs < 50): #The Total
         fs += 1
     else:
         fs -= 2
+
+    if(carbs >= 300): #If the food item is way too high in Carbs
+        fs -= 8
 
     carbs /= divide  #To get the single serving amount for calories for the next condition
     if(carbs < 10): #Per Serving 
@@ -145,21 +157,27 @@ def fatsMulti(fs, multi):
     m_fat = input("Enter the amount of Monounsaturated Fat: ")
     m_fat = isWholeNumber(m_fat)
 
-    if((s_fat + t_fat) < 6): #Per Serving 
+    if((s_fat + t_fat) <= 6): #Per Serving 
         fs += 1
     else:
         fs -= 1
     
-    if((s_fat + t_fat) * multi > 30): #Total Saturated and Trans Fat is greater than 30g
+    if((s_fat + t_fat) * multi >= 30): #Total Saturated and Trans Fat is greater than 30g
         fs -= 2
+
+    if((s_fat + t_fat) * multi >= 80): #If the food item is way too high in Saturated and Trans Fat Total
+        fs -= 8
 
     allFat *= multi  #To get the Total serving amount for Fat for the next condition
     if(allFat < 30): #Total of all Fat
         fs += 2
-    elif(allFat > 50): #Total of all Fat greater than 55g
+    elif(allFat > 50): #Total of all Fat greater than 50g
         fs -= 3
     else:
-        fs += 0
+        fs -= 2 #30g or More and 50g or less Totals: -2
+
+    if(allFat >= 200): #If the food item is way too high in Fat Total
+        fs -= 8
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
     if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
@@ -183,12 +201,15 @@ def fatsDivide(fs, divide):
     m_fat = input("Enter the amount of Monounsaturated Fat: ")
     m_fat = isWholeNumber(m_fat)
 
-    if((s_fat + t_fat)/divide < 6): #Per Serving 
+    if((s_fat + t_fat) >= 80): #If the food item is way too high in Saturated and Trans Fat Total
+        fs -= 8
+
+    if((s_fat + t_fat)/divide <= 6): #Per Serving 
         fs += 1
     else:
         fs -= 1
     
-    if((s_fat + t_fat) > 30): #Total Saturated and Trans Fat is greater than 30g
+    if((s_fat + t_fat) >= 30): #Total Saturated and Trans Fat is greater than 30g
         fs -= 2
 
     #Here, the fat is already Total
@@ -197,7 +218,10 @@ def fatsDivide(fs, divide):
     elif(allFat > 50): #Total of all Fat greater than 55g
         fs -= 3
     else:
-        fs += 0
+        fs -= 2 #30g or More and 50g or less Totals: -2
+
+    if(allFat >= 200): #If the food item is way too high in Fat Total
+        fs -= 8
 
     #Note: We don't need to do any math for Monounsaturated or Polyunsaturated Fats. If there's any in the product, add 2 points each.
     if(p_fat > 0): #Total of Ployunsaturated Fat greater than 0g
@@ -213,12 +237,12 @@ def ProteinMulti(fs, multi):
     protein = input("Enter the amount of protein: ")
     protein = isWholeNumber(protein)
 
-    if(protein > 18): #Per Serving 
+    if(protein >= 12): #Per Serving 
         fs += 3
     
     protein *= multi  #To get the Total serving amount for Protein for the next condition
-    if(protein > 35): #The Total
-        fs += 1
+    if(protein >= 30): #The Total
+        fs += 2
 
     return fs
 
@@ -227,11 +251,11 @@ def ProteinDivide(fs, divide):
     protein = input("Enter the amount of protein: ")
     protein = isWholeNumber(protein)
 
-    if(protein > 35): #The Total
-        fs += 1
+    if(protein >= 30): #The Total
+        fs += 2
 
     protein /= divide  #To get the single serving amount for Protein for the next condition
-    if(protein > 18): #Per Serving 
+    if(protein >= 12): #Per Serving 
         fs += 3
 
     return fs
@@ -243,20 +267,25 @@ def CholesterolMulti(fs, multi):
     allFat = input("Enter the amount of Total Fat again: ")
     allFat = isWholeNumber(allFat)
 
-    if(chol < 30): #Per Serving
+    if(chol < 25): #Per Serving
         fs += 2
     else:
         fs -= 2
 
     chol *= multi  #To get the Total serving amount for Cholesterol for the next condition
-    if(chol < 50): #Total Serving
+    if(chol < 40): #Total Serving
         fs += 4
     else:
         fs -= 2
 
     allFat *= multi #To get the Total Fat serving amount for the next condition
-    if((chol > 50) and (allFat > 40)):
+    if((chol >= 40) and (allFat >= 35)):
         fs -= 5
+    elif((chol >= 200) and (allFat >= 120)): #If the food item is way too high in Cholesterol and Fat Total
+        fs -= 10
+
+    if(chol >= 200): #If the food item is way too high in Cholesterol Total
+        fs -= 10
 
     return fs
 
@@ -267,16 +296,21 @@ def CholesterolDivide(fs, divide):
     allFat = input("Enter the amount of Total Fat again: ")
     allFat = isWholeNumber(allFat)
 
-    if(chol < 50): #Total Serving
+    if(chol < 40): #Total Serving
         fs += 4
     else:
         fs -= 2
 
-    if((chol > 50) and (allFat > 40)):
+    if((chol >= 40) and (allFat >= 35)):
         fs -= 5
+    elif((chol >= 200) and (allFat >= 120)): #If the food item is way too high in Cholesterol and Fat Total
+        fs -= 10
+
+    if(chol >= 200): #If the food item is way too high in Cholesterol Total
+        fs -= 10
 
     chol /= divide #To get the Total Fat serving amount for the next condition
-    if(chol < 30): #Per Serving
+    if(chol < 25): #Per Serving
         fs += 2
     else:
         fs -= 2
@@ -306,14 +340,14 @@ def Sugar(fs):
 
 
     if(sugar == 0): 
-        fs += 2
+        fs += 1
     else:
         fs -= 2
     
     if(sugarAns == 'y' and sugarAdded == 'n' and sugar >= 1):
         fs += 2 #no Added Sugar
     elif(sugarAns == 'y' and sugarAdded == 'n' and sugar == 0):
-        fs += 4 #no Added Sugar with 0 sugar, Extra bonus.
+        fs += 3 #no Added Sugar with 0 sugar, Extra bonus.
     elif(sugarAns == 'y' and sugarAdded == 'y'):
         fs -= 10 #Has Added Sugar. 
     elif(sugarAns == 'n' and sugar >= 10 and carbs >= 25 ):
@@ -321,10 +355,13 @@ def Sugar(fs):
     elif(sugarAns == 'n' and sugar >= 1 and sugar < 10 and carbs >= 1 and carbs < 25 ):
         fs += 1 #if it's not clear, but the sugars are very low, +1
     elif(sugarAns == 'n' and sugar == 0):
-        fs += 3
+        fs += 2
     else:
         fs += 0 #If nothing fits, add nothing
-        
+
+    if(sugar >= 100): #If the food item is way too high in Sugar Total
+        fs -= 8
+
     return fs
 
 def SodiumMulti(fs, multi):
@@ -339,11 +376,14 @@ def SodiumMulti(fs, multi):
 
     sodium *= multi  #To get the Total serving amount for sodium for the next condition
     if(sodium < 1050): #The Total
-        fs += 1
+        fs += 2
     elif(sodium > 1500):
         fs -= 3
     else:
-        fs += 0 # do nothing 
+        fs -= 2 # If not fits, -2 
+
+    if(sodium >= 3500): #If the food item is way too high in Sodium Total
+        fs -= 8
 
     return fs
 
@@ -353,11 +393,14 @@ def SodiumDivide(fs, divide):
     sodium = isWholeNumber(sodium)
 
     if(sodium < 1050): #The Total
-        fs += 1
+        fs += 2
     elif(sodium > 1500):
         fs -= 3
     else:
-        fs += 0 # do nothing 
+        fs -= 2 # If not fits, -2 
+
+    if(sodium > 3500): #If the food item is way too high in Sodium Total
+        fs -= 8
 
     sodium /= divide  #To get the single serving amount for sodium for the next condition
     if(sodium < 450): #Per Serving 
