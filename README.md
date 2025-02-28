@@ -77,7 +77,7 @@ More Than 0g Sugars: -2 Point
 
 More Than 0g "Added Sugars": -10 Points
 
-If the food item shows Carbs and Sugar separately and it isn't clear, there's "Added Sugar": -6.
+If the food item shows Carbs and Sugar separately and it isn't clear, there's "Added Sugar": -3.
 
 ----
 
